@@ -1,0 +1,3091 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/BigstickCarpet/swagger-express-middleware"
+
+    >swagger-express-middleware (v1.0.0-alpha.12)</a>
+</h1>
+<h4>Swagger middleware and mocks for Express</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware">module swagger-express-middleware</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.swagger-express-middleware">
+            function <span class="apidocSignatureSpan"></span>swagger-express-middleware
+            <span class="apidocSignatureSpan">(swagger, router, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>DataStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.FileDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>FileDataStore
+            <span class="apidocSignatureSpan">(baseDir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.MemoryDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>MemoryDataStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Middleware">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Middleware
+            <span class="apidocSignatureSpan">(sharedRouter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Resource
+            <span class="apidocSignatureSpan">(path, name, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>context
+            <span class="apidocSignatureSpan">(router)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.json_schema">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>json_schema
+            <span class="apidocSignatureSpan">(schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.param_parser">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>param_parser
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>DataStore.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>FileDataStore.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>MemoryDataStore.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>Resource.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>context.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>json_schema.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.DataStore">module swagger-express-middleware.DataStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.DataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>DataStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.DataStore.prototype">module swagger-express-middleware.DataStore.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.__openDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>__openDataStore
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.__saveDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>__saveDataStore
+            <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.delete">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>delete
+            <span class="apidocSignatureSpan">(resources, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.deleteCollection">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>deleteCollection
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.get">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>get
+            <span class="apidocSignatureSpan">(resource, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.getCollection">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>getCollection
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.remove">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>remove
+            <span class="apidocSignatureSpan">(resources, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.removeCollection">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>removeCollection
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.DataStore.prototype.save">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>save
+            <span class="apidocSignatureSpan">(resources, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.FileDataStore">module swagger-express-middleware.FileDataStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.FileDataStore.FileDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>FileDataStore
+            <span class="apidocSignatureSpan">(baseDir)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.FileDataStore.prototype">module swagger-express-middleware.FileDataStore.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.__openDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>__openDataStore
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.__saveDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>__saveDataStore
+            <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.constructor">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(baseDir)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.MemoryDataStore">module swagger-express-middleware.MemoryDataStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.MemoryDataStore.MemoryDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>MemoryDataStore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.MemoryDataStore.prototype">module swagger-express-middleware.MemoryDataStore.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__openDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>__openDataStore
+            <span class="apidocSignatureSpan">(collection, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__saveDataStore">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>__saveDataStore
+            <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.constructor">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>constructor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.Resource">module swagger-express-middleware.Resource</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.Resource">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Resource
+            <span class="apidocSignatureSpan">(path, name, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.parse">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.</span>parse
+            <span class="apidocSignatureSpan">(json)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.Resource.prototype">module swagger-express-middleware.Resource.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.prototype.filter">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>filter
+            <span class="apidocSignatureSpan">(router, collectionOnly)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.prototype.merge">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>merge
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.prototype.toString">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.Resource.prototype.valueOf">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>valueOf
+            <span class="apidocSignatureSpan">(router, collectionOnly)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.context">module swagger-express-middleware.context</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.context">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>context
+            <span class="apidocSignatureSpan">(router)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.context.prototype">module swagger-express-middleware.context.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.addListener">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>addListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.emit">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>emit
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.eventNames">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>eventNames
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.getMaxListeners">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>getMaxListeners
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.listenerCount">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>listenerCount
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.listeners">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>listeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.on">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>on
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.once">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>once
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.prependListener">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>prependListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.prependOnceListener">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>prependOnceListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.removeAllListeners">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>removeAllListeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.removeListener">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>removeListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.context.prototype.setMaxListeners">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>setMaxListeners
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">undefined <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>domain</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.json_schema">module swagger-express-middleware.json_schema</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.json_schema.json_schema">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>json_schema
+            <span class="apidocSignatureSpan">(schema)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.json_schema.prototype">module swagger-express-middleware.json_schema.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.json_schema.prototype.parse">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>parse
+            <span class="apidocSignatureSpan">(value, propPath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.json_schema.prototype.sample">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>sample
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.json_schema.prototype.serialize">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>serialize
+            <span class="apidocSignatureSpan">(value, propPath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.param_parser">module swagger-express-middleware.param_parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.param_parser.param_parser">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.</span>param_parser
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.param_parser.parseParameter">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.param_parser.</span>parseParameter
+            <span class="apidocSignatureSpan">(param, value, schema)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.swagger-express-middleware.util">module swagger-express-middleware.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.debug">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>debug
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.getAllowedMethods">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getAllowedMethods
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.getParameters">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getParameters
+            <span class="apidocSignatureSpan">(path, operation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.getRequestSchema">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getRequestSchema
+            <span class="apidocSignatureSpan">(path, operation)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.getResponsesBetween">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getResponsesBetween
+            <span class="apidocSignatureSpan">(operation, min, max)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.isExpressApp">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressApp
+            <span class="apidocSignatureSpan">(router)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.isExpressRouter">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressRouter
+            <span class="apidocSignatureSpan">(router)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.isExpressRoutingOptions">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressRoutingOptions
+            <span class="apidocSignatureSpan">(router)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.isSwaggerRequest">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isSwaggerRequest
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.normalizePath">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>normalizePath
+            <span class="apidocSignatureSpan">(path, router)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.rfc1123">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>rfc1123
+            <span class="apidocSignatureSpan">(date)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.swagger-express-middleware.util.warn">
+            function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>warn
+            <span class="apidocSignatureSpan">(err, message, params)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>swaggerParamRegExp</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware" id="apidoc.module.swagger-express-middleware">module swagger-express-middleware</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.swagger-express-middleware" id="apidoc.element.swagger-express-middleware.swagger-express-middleware">
+        function <span class="apidocSignatureSpan"></span>swagger-express-middleware
+        <span class="apidocSignatureSpan">(swagger, router, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createMiddleware(swagger, router, callback) {
+  // Shift args if needed
+  if (util.isExpressRouter(swagger)) {
+    router = swagger;
+    swagger = callback = undefined;
+  }
+  else if (!util.isExpressRouter(router)) {
+    callback = router;
+    router = undefined;
+  }
+
+  var middleware = new module.exports.Middleware(router);
+
+  if (swagger) {
+    middleware.init(swagger, callback);
+  }
+
+  return middleware;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore" id="apidoc.element.swagger-express-middleware.DataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>DataStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DataStore() {
+<span class="apidocCodeCommentSpan">  /**
+   * The Express Application or Router that&#x27;s used to determine case-sensitivity and/or strict matching
+   * of collection paths and resource names.
+   *
+   * @type {express#Router}
+   * @protected
+   */
+</span>  this.__router = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.FileDataStore" id="apidoc.element.swagger-express-middleware.FileDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>FileDataStore
+        <span class="apidocSignatureSpan">(baseDir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileDataStore(baseDir) {
+  DataStore.call(this);
+  this.__baseDir = baseDir || process.cwd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.MemoryDataStore" id="apidoc.element.swagger-express-middleware.MemoryDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>MemoryDataStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryDataStore() {
+  DataStore.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * This implementation of DataStore uses an in-memory array.
+   * @type {Resource[]}
+   * @private
+   */
+</span>  this.__resourceStore = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Middleware" id="apidoc.element.swagger-express-middleware.Middleware">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Middleware
+        <span class="apidocSignatureSpan">(sharedRouter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Middleware(sharedRouter) {
+  sharedRouter = util.isExpressRouter(sharedRouter) ? sharedRouter : undefined;
+
+  var self    = this;
+  var context = new MiddlewareContext(sharedRouter);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Initializes the middleware with the given Swagger API.
+   * This method can be called again to re-initialize with a new or modified API.
+   *
+   * @param   {string|object}     [swagger]
+   * - The file path or URL of a Swagger 2.0 API spec, in YAML or JSON format.
+   * Or a valid Swagger API object (see https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#swagger-object).
+   *
+   * @param   {function}          [callback]
+   * - It will be called when the API has been parsed, validated, and dereferenced, or when an error occurs.
+   */
+</span>  this.init = function(swagger, callback) {
+    //the swagger variable should only ever be a string or a populated object.
+    var invalidSwagger = _.isFunction(swagger) || _.isDate(swagger) || _.isEmpty(swagger);
+
+    if (invalidSwagger) {
+      throw new Error(&#x27;Expected a Swagger file or object&#x27;);
+    }
+
+    //Need to retrieve the Swagger API and metadata from the Swagger .yaml or .json file.
+    var parser = new SwaggerParser();
+    parser.dereference(swagger, function(err, api) {
+      if (err) {
+        util.warn(err);
+      }
+
+      context.error  = err;
+      context.api    = api;
+      context.parser = parser;
+      context.emit(&#x27;change&#x27;);
+
+      if (_.isFunction(callback)) {
+        callback(err, self, context.api, context.parser);
+      }
+    });
+  };
+
+  /**
+   * Serves the Swagger API file(s) in JSON and YAML formats,
+   * so they can be used with third-party front-end tools like Swagger UI and Swagger Editor.
+   *
+   * @param   {express#Router}    [router]
+   * - Express routing options (e.g. `caseSensitive`, `strict`).
+   * If an Express Application or Router is passed, then its routing settings will be used.
+   *
+   * @param   {fileServer.defaultOptions}  [options]
+   * - Options for how the files are served (see {@link fileServer.defaultOptions})
+   *
+   * @returns {function[]}
+   */
+  this.files = function(router, options) {
+    if (arguments.length === 1 &#x26;&#x26; !util.isExpressRouter(router) &#x26;&#x26; !util.isExpressRoutingOptions(router)) {
+      // Shift arguments
+      options = router;
+      router  = sharedRouter;
+    }
+
+    return fileServer(context, router, options);
+  };
+
+  /**
+   * Annotates the HTTP request (the `req` object) with Swagger metadata.
+   * This middleware populates {@link Request#swagger}.
+   *
+   * @param   {express#Router}    [router]
+   * - Express routing options (e.g. `caseSensitive`, `strict`).
+   * If an Express Application or Router is passed, then its routing settings will be used.
+   *
+   * @returns {function[]}
+   */
+  this.metadata = function(router) {
+    return requestMetadata(context, router);
+  };
+
+  /**
+   * Handles CORS preflight requests and sets CORS headers for all requests
+   * according the Swagger API definition.
+   *
+   * @returns {function[]}
+   */
+  this.CORS = function() {
+    return CORS();
+  };
+
+  /**
+   * Parses the HTTP request into typed values.
+   * This middleware populates {@link Request#params}, {@link Request#headers}, {@link Request#cookies},
+   * {@link Request#signedCookies}, {@link Request#query}, {@link Request#body}, and {@link Request#files}.
+   *
+   * @param   {express#Router}    [router]
+   * - An Express Application or Router. If provided, this will be used to register path-param middleware
+   * via {@link Router#param} (see http://expressjs.com/4x/api.html#router.param).
+   * If not provided, then path parameters will always be parsed as strings.
+   *
+   * @param   {requestParser.defaultOptions}  [options]
+   * - Options for each of the request-parsing middleware (see {@link requestParser.defaultOptions})
+   *
+   * @returns {function[]}
+   */
+  this.parseRequest = function(router, options) {
+    if (arguments.length === 1 &#x26;&#x26; !util.isExpressRouter(router) &#x26;&#x26; !util.isExpressRoutingOptions(router)) {
+      // Shift arguments
+      options = router;
+      router  = sharedRouter;
+    }
+
+    return req ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource" id="apidoc.element.swagger-express-middleware.Resource">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Resource
+        <span class="apidocSignatureSpan">(path, name, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Resource(path, name, data) {
+  switch (arguments.length) {
+    case 0:
+      this.collection = &#x27;&#x27;;
+      this.name = &#x27;/&#x27;;
+      this.data = undefined;
+      break;
+    case 1:
+      this.collection = getCollectionFromPath(path);
+      this.name = getNameFromPath(path);
+      this.data = undefined;
+      break;
+    case 2:
+      this.merge(name);
+      this.collection = getCollectionFromPath(path);
+      this.name = getNameFromPath(path);
+      break;
+    default:
+      this.collection = normalizeCollection(path);
+      this.name = normalizeName(name);
+      this.merge(data);
+  }
+
+  this.createdOn = null;
+  this.modifiedOn = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context" id="apidoc.element.swagger-express-middleware.context">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>context
+        <span class="apidocSignatureSpan">(router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MiddlewareContext(router) {
+  events.EventEmitter.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Express routing options (e.g. `caseSensitive`, `strict`).
+   * If set to an Express Application or Router, then its routing settings will be used.
+   * @type {express#Router}
+   */
+</span>  this.router = router || {};
+
+  /**
+   * The parsed Swagger API
+   * @type {SwaggerObject}
+   */
+  this.api = null;
+
+  /**
+   * The {@link SwaggerParser} instance that was used to parse the API.
+   * @type {SwaggerParser}
+   */
+  this.parser = null;
+
+  /**
+   * If the Swagger API contains errors, this will be set
+   * @type {Error}
+   */
+  this.error = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.json_schema" id="apidoc.element.swagger-express-middleware.json_schema">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>json_schema
+        <span class="apidocSignatureSpan">(schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonSchema(schema) {
+  if (!schema) {
+    throw ono({status: 500}, &#x27;Missing JSON schema&#x27;);
+  }
+  if (schema.type !== undefined &#x26;&#x26; dataTypes.indexOf(schema.type) === -1) {
+    throw ono({status: 500}, &#x27;Invalid JSON schema type: %s&#x27;, schema.type);
+  }
+
+  this.schema = schema;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.param_parser" id="apidoc.element.swagger-express-middleware.param_parser">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>param_parser
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paramParser() {
+  return [parseSimpleParams, parseFormDataParams, parseBodyParam];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.DataStore" id="apidoc.module.swagger-express-middleware.DataStore">module swagger-express-middleware.DataStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.DataStore" id="apidoc.element.swagger-express-middleware.DataStore.DataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>DataStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DataStore() {
+<span class="apidocCodeCommentSpan">  /**
+   * The Express Application or Router that&#x27;s used to determine case-sensitivity and/or strict matching
+   * of collection paths and resource names.
+   *
+   * @type {express#Router}
+   * @protected
+   */
+</span>  this.__router = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.DataStore.prototype" id="apidoc.module.swagger-express-middleware.DataStore.prototype">module swagger-express-middleware.DataStore.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.__openDataStore" id="apidoc.element.swagger-express-middleware.DataStore.prototype.__openDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>__openDataStore
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__openDataStore = function (collection, callback) {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.__saveDataStore" id="apidoc.element.swagger-express-middleware.DataStore.prototype.__saveDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>__saveDataStore
+        <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__saveDataStore = function (collection, resources, callback) {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.delete" id="apidoc.element.swagger-express-middleware.DataStore.prototype.delete">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>delete
+        <span class="apidocSignatureSpan">(resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (resources, callback) {
+  call(this, remove, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+);
+
+// Add custom middleware
+app.patch(&#x27;/pets/:petName&#x27;, function(req, res, next) {
+  if (req.body.name !== req.params.petName) {
+    // The pet&#x27;s name has changed, so change its URL.
+    // Start by deleting the old resource
+    myDB.<span class="apidocCodeKeywordSpan">delete</span>(new Resource(req.path), function(err, pet) {
+      if (pet) {
+        // Merge the new data with the old data
+        pet.merge(req.body);
+      }
+      else {
+        pet = req.body;
+      }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.deleteCollection" id="apidoc.element.swagger-express-middleware.DataStore.prototype.deleteCollection">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>deleteCollection
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteCollection = function (collection, callback) {
+  var self = this;
+
+  openCollection(self, collection, function(err, collection, resources) {
+    if (err) {
+      doCallback(callback, err);
+    }
+    else {
+      // Remove all resources in the collection
+      var removed = _.remove(resources, collection.filter(self.__router, true));
+
+      if (removed.length &#x3e; 0) {
+        // Normalize the collection name
+        var collectionName = collection.valueOf(self.__router, true);
+
+        // Save the changes
+        self.__saveDataStore(collectionName, resources, function(err) {
+          if (err) {
+            doCallback(callback, err);
+          }
+          else {
+            doCallback(callback, null, removed);
+          }
+        });
+      }
+      else {
+        doCallback(callback, null, []);
+      }
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.get" id="apidoc.element.swagger-express-middleware.DataStore.prototype.get">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>get
+        <span class="apidocSignatureSpan">(resource, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (resource, callback) {
+  var self = this;
+
+  if (_.isString(resource)) {
+    resource = new Resource(resource);
+  }
+
+  openCollection(self, resource, function(err, collection, resources) {
+    if (err) {
+      doCallback(callback, err);
+    }
+    else {
+      // Find the resource
+      resource = _.find(resources, resource.filter(self.__router));
+      doCallback(callback, null, resource);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      res.set(header, responseHeaders[header]);
+    }
+    else {
+      // Set the header to a sensible default
+      switch (header) {
+case accessControl.allowOrigin:
+  // By default, allow the origin host. Fallback to wild-card.
+  res.set(header, req.<span class="apidocCodeKeywordSpan">get</span>(&#x27;Origin&#x27;) || &#x27;*&#x27;);
+  break;
+
+case accessControl.allowMethods:
+  if (req.swagger &#x26;&#x26; req.swagger.path) {
+    // Return the allowed methods for this Swagger path
+    res.set(header, util.getAllowedMethods(req.swagger.path));
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.getCollection" id="apidoc.element.swagger-express-middleware.DataStore.prototype.getCollection">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>getCollection
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCollection = function (collection, callback) {
+  var self = this;
+
+  openCollection(self, collection, function(err, collection, resources) {
+    if (err) {
+      doCallback(callback, err);
+    }
+    else {
+      // Return the resources in the collection
+      resources = _.filter(resources, collection.filter(self.__router, true));
+      doCallback(callback, null, resources);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.remove" id="apidoc.element.swagger-express-middleware.DataStore.prototype.remove">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>remove
+        <span class="apidocSignatureSpan">(resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (resources, callback) {
+  call(this, remove, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.removeCollection" id="apidoc.element.swagger-express-middleware.DataStore.prototype.removeCollection">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>removeCollection
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeCollection = function (collection, callback) {
+  var self = this;
+
+  openCollection(self, collection, function(err, collection, resources) {
+    if (err) {
+      doCallback(callback, err);
+    }
+    else {
+      // Remove all resources in the collection
+      var removed = _.remove(resources, collection.filter(self.__router, true));
+
+      if (removed.length &#x3e; 0) {
+        // Normalize the collection name
+        var collectionName = collection.valueOf(self.__router, true);
+
+        // Save the changes
+        self.__saveDataStore(collectionName, resources, function(err) {
+          if (err) {
+            doCallback(callback, err);
+          }
+          else {
+            doCallback(callback, null, removed);
+          }
+        });
+      }
+      else {
+        doCallback(callback, null, []);
+      }
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.DataStore.prototype.save" id="apidoc.element.swagger-express-middleware.DataStore.prototype.save">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.DataStore.prototype.</span>save
+        <span class="apidocSignatureSpan">(resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function (resources, callback) {
+  call(this, save, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var app = express();
+var middleware = new Middleware(app);
+
+middleware.init(path.join(__dirname, &#x27;PetStore.yaml&#x27;), function(err) {
+// Create a custom data store with some initial mock data
+var myDB = new MemoryDataStore();
+myDB.<span class="apidocCodeKeywordSpan">save</span>(
+  new Resource(&#x27;/pets/Lassie&#x27;, {name: &#x27;Lassie&#x27;, type: &#x27;dog&#x27;, tags: [&#x27;brown&#x27;, &#x27;white
+&#x27;]}),
+  new Resource(&#x27;/pets/Clifford&#x27;, {name: &#x27;Clifford&#x27;, type: &#x27;dog&#x27;, tags: [&#x27;red&#x27;, &#x27;big
+&#x27;]}),
+  new Resource(&#x27;/pets/Garfield&#x27;, {name: &#x27;Garfield&#x27;, type: &#x27;cat&#x27;, tags: [&#x27;orange&#x27;]}),
+  new Resource(&#x27;/pets/Snoopy&#x27;, {name: &#x27;Snoopy&#x27;, type: &#x27;dog&#x27;, tags: [&#x27;black&#x27;, &#x27;white
+&#x27;]}),
+  new Resource(&#x27;/pets/Hello%20Kitty&#x27;, {name: &#x27;Hello Kitty&#x27;, type: &#x27;cat&#x27;, tags: [&#x27;white&#x27;]})
+);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.FileDataStore" id="apidoc.module.swagger-express-middleware.FileDataStore">module swagger-express-middleware.FileDataStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.FileDataStore.FileDataStore" id="apidoc.element.swagger-express-middleware.FileDataStore.FileDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>FileDataStore
+        <span class="apidocSignatureSpan">(baseDir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileDataStore(baseDir) {
+  DataStore.call(this);
+  this.__baseDir = baseDir || process.cwd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.FileDataStore.prototype" id="apidoc.module.swagger-express-middleware.FileDataStore.prototype">module swagger-express-middleware.FileDataStore.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.__openDataStore" id="apidoc.element.swagger-express-middleware.FileDataStore.prototype.__openDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>__openDataStore
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__openDataStore = function (collection, callback) {
+  fs.readFile(getFilePath(this.__baseDir, collection), {encoding: &#x27;utf8&#x27;}, function(err, data) {
+    if (err) {
+      if (err.code === &#x27;ENOENT&#x27;) {
+        // The file doesn&#x27;t exist yet, so just return an empty array
+        callback(null, []);
+      }
+      else {
+        callback(err);
+      }
+    }
+    else {
+      var resources;
+      try {
+        // Parse the JSON data into an array of Resource objects
+        resources = Resource.parse(data);
+      }
+      catch (e) {
+        callback(e);
+        return;
+      }
+
+      // Call the callback outside of the try..catch block,
+      // so we don&#x27;t catch any errors that happen in third-party code
+      callback(null, resources);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.__saveDataStore" id="apidoc.element.swagger-express-middleware.FileDataStore.prototype.__saveDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>__saveDataStore
+        <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__saveDataStore = function (collection, resources, callback) {
+  var self = this;
+
+  // Create the directory path
+  mkdirp(getDirectory(this.__baseDir, collection), function(err) {
+    if (err) {
+      callback(err);
+    }
+    else {
+      // Write the JSON data to the file
+      fs.writeFile(getFilePath(self.__baseDir, collection), JSON.stringify(resources, null, 2), callback);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.FileDataStore.prototype.constructor" id="apidoc.element.swagger-express-middleware.FileDataStore.prototype.constructor">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.FileDataStore.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(baseDir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileDataStore(baseDir) {
+  DataStore.call(this);
+  this.__baseDir = baseDir || process.cwd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.MemoryDataStore" id="apidoc.module.swagger-express-middleware.MemoryDataStore">module swagger-express-middleware.MemoryDataStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.MemoryDataStore.MemoryDataStore" id="apidoc.element.swagger-express-middleware.MemoryDataStore.MemoryDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>MemoryDataStore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryDataStore() {
+  DataStore.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * This implementation of DataStore uses an in-memory array.
+   * @type {Resource[]}
+   * @private
+   */
+</span>  this.__resourceStore = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.MemoryDataStore.prototype" id="apidoc.module.swagger-express-middleware.MemoryDataStore.prototype">module swagger-express-middleware.MemoryDataStore.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__openDataStore" id="apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__openDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>__openDataStore
+        <span class="apidocSignatureSpan">(collection, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__openDataStore = function (collection, callback) {
+  setImmediate(callback, null, this.__resourceStore);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__saveDataStore" id="apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.__saveDataStore">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>__saveDataStore
+        <span class="apidocSignatureSpan">(collection, resources, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">__saveDataStore = function (collection, resources, callback) {
+  try {
+    this.__resourceStore = Resource.parse(resources);
+    setImmediate(callback);
+  }
+  catch (e) {
+    callback(e);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.constructor" id="apidoc.element.swagger-express-middleware.MemoryDataStore.prototype.constructor">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.MemoryDataStore.prototype.</span>constructor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MemoryDataStore() {
+  DataStore.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * This implementation of DataStore uses an in-memory array.
+   * @type {Resource[]}
+   * @private
+   */
+</span>  this.__resourceStore = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.Resource" id="apidoc.module.swagger-express-middleware.Resource">module swagger-express-middleware.Resource</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.Resource" id="apidoc.element.swagger-express-middleware.Resource.Resource">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>Resource
+        <span class="apidocSignatureSpan">(path, name, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Resource(path, name, data) {
+  switch (arguments.length) {
+    case 0:
+      this.collection = &#x27;&#x27;;
+      this.name = &#x27;/&#x27;;
+      this.data = undefined;
+      break;
+    case 1:
+      this.collection = getCollectionFromPath(path);
+      this.name = getNameFromPath(path);
+      this.data = undefined;
+      break;
+    case 2:
+      this.merge(name);
+      this.collection = getCollectionFromPath(path);
+      this.name = getNameFromPath(path);
+      break;
+    default:
+      this.collection = normalizeCollection(path);
+      this.name = normalizeName(name);
+      this.merge(data);
+  }
+
+  this.createdOn = null;
+  this.modifiedOn = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.parse" id="apidoc.element.swagger-express-middleware.Resource.parse">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.</span>parse
+        <span class="apidocSignatureSpan">(json)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (json) {
+  if (!_.isString(json)) {
+    // Convert the data to JSON, to match real-world serialization
+    json = JSON.stringify(json);
+  }
+
+  json = JSON.parse(json);
+
+  var isArray = _.isArray(json);
+  if (!isArray) {
+    json = [json];
+  }
+
+  var resources = [];
+  json.forEach(function(pojo) {
+    var resource = new Resource(pojo.collection, pojo.name, pojo.data);
+    resource.createdOn = new Date(pojo.createdOn);
+    resource.modifiedOn = new Date(pojo.modifiedOn);
+    resources.push(resource);
+  });
+
+  return isArray ? resources : resources[0];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    else if (schema.default === undefined) {
+      // The parameter is optional, and there&#x27;s no default value
+      return undefined;
+    }
+  }
+
+  try {
+    return new JsonSchema(schema).<span class="apidocCodeKeywordSpan">parse</span>(value);
+  }
+  catch (e) {
+    throw ono(e, {status: e.status}, &#x27;The &#x22;%s&#x22; %s parameter is invalid (%j)&#x27;,
+      param.name, param.in, value === undefined ? param.default : value);
+  }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.Resource.prototype" id="apidoc.module.swagger-express-middleware.Resource.prototype">module swagger-express-middleware.Resource.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.prototype.filter" id="apidoc.element.swagger-express-middleware.Resource.prototype.filter">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>filter
+        <span class="apidocSignatureSpan">(router, collectionOnly)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function (router, collectionOnly) {
+  var myValue = this.valueOf(router, collectionOnly);
+
+  return function(resource) {
+    return myValue === resource.valueOf(router, collectionOnly);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* This is useful for setting HTTP headers such as Allow and Access-Control-Allow-Methods.
+*
+* @param   {object}    path - A Path object, from the Swagger API.
+* @returns {string}
+*/
+exports.getAllowedMethods = function(path) {
+ return swaggerMethods
+   .<span class="apidocCodeKeywordSpan">filter</span>(function(method) { return !!path[method]; })
+   .join(&#x27;, &#x27;)
+   .toUpperCase();
+};
+
+/**
+* Returns the given operation&#x27;s Response objects that have HTTP response codes between
+* the given min and max (inclusive).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.prototype.merge" id="apidoc.element.swagger-express-middleware.Resource.prototype.merge">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>merge
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (other) {
+  this.modifiedOn = new Date();
+
+  var otherData = other ? other instanceof Resource ? other.data : other : other;
+
+  // Merge with the other resource&#x27;s data, if possible; otherwise, overwrite.
+  if ((_.isArray(this.data) &#x26;&#x26; _.isArray(otherData)) ||
+    (_.isPlainObject(this.data) &#x26;&#x26; _.isPlainObject(otherData))) {
+    _.merge(this.data, otherData);
+  }
+  else {
+    this.data = otherData;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param   {fileServer.defaultOptions}     [options]
+ * @returns {function[]}
+ */
+function fileServer(context, router, options) {
+router = router || context.router;
+
+// Override default options
+options = _.<span class="apidocCodeKeywordSpan">merge</span>({}, fileServer.defaultOptions, options);
+
+// Only return the middleware that&#x27;s allowed
+var middleware = [];
+options.apiPath &#x26;&#x26; middleware.push(serveDereferencedSwaggerFile);
+options.rawFilesPath &#x26;&#x26; middleware.push(serveRawSwaggerFiles);
+return middleware;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.prototype.toString" id="apidoc.element.swagger-express-middleware.Resource.prototype.toString">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return this.collection + this.name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function parseBoolean(schema, value, propPath) {
+// Handle missing, required, and default
+value = getValueToValidate(schema, value);
+
+// &#x22;Parse&#x22; the value
+var parsedValue = value;
+var stringValue = _(value).<span class="apidocCodeKeywordSpan">toString</span>().toLowerCase();
+if (stringValue === &#x27;true&#x27;) {
+  parsedValue = true;
+}
+else if (stringValue === &#x27;false&#x27;) {
+  parsedValue = false;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.Resource.prototype.valueOf" id="apidoc.element.swagger-express-middleware.Resource.prototype.valueOf">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.Resource.prototype.</span>valueOf
+        <span class="apidocSignatureSpan">(router, collectionOnly)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valueOf = function (router, collectionOnly) {
+  if (router) {
+    var myValue = collectionOnly ? this.collection : this.toString();
+    return util.normalizePath(myValue, router);
+  }
+  else {
+    return this.toString();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return _(value).toString();
+}
+}
+
+function sampleDate(schema) {
+var min, max;
+if (schema.minimum !== undefined) {
+  min = parseInt(new Date(schema.minimum).<span class="apidocCodeKeywordSpan">valueOf</span>()) + (schema.exclusiveMinimum ? 1 :
+0);
+}
+else {
+  min = Date.UTC(1970, 0, 1);
+  min = Math.min(min, new Date(schema.maximum).valueOf()) || min;
+}
+
+if (schema.maximum !== undefined) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.context" id="apidoc.module.swagger-express-middleware.context">module swagger-express-middleware.context</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.context" id="apidoc.element.swagger-express-middleware.context.context">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>context
+        <span class="apidocSignatureSpan">(router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MiddlewareContext(router) {
+  events.EventEmitter.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Express routing options (e.g. `caseSensitive`, `strict`).
+   * If set to an Express Application or Router, then its routing settings will be used.
+   * @type {express#Router}
+   */
+</span>  this.router = router || {};
+
+  /**
+   * The parsed Swagger API
+   * @type {SwaggerObject}
+   */
+  this.api = null;
+
+  /**
+   * The {@link SwaggerParser} instance that was used to parse the API.
+   * @type {SwaggerParser}
+   */
+  this.parser = null;
+
+  /**
+   * If the Swagger API contains errors, this will be set
+   * @type {Error}
+   */
+  this.error = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.context.prototype" id="apidoc.module.swagger-express-middleware.context.prototype">module swagger-express-middleware.context.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.addListener" id="apidoc.element.swagger-express-middleware.context.prototype.addListener">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>addListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.emit" id="apidoc.element.swagger-express-middleware.context.prototype.emit">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>emit
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emit(type) {
+  var er, handler, len, args, i, events, domain;
+  var needDomainExit = false;
+  var doError = (type === &#x27;error&#x27;);
+
+  events = this._events;
+  if (events)
+    doError = (doError &#x26;&#x26; events.error == null);
+  else if (!doError)
+    return false;
+
+  domain = this.domain;
+
+  // If there is no &#x27;error&#x27; event listener then throw.
+  if (doError) {
+    er = arguments[1];
+    if (domain) {
+      if (!er)
+        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+      er.domainEmitter = this;
+      er.domain = domain;
+      er.domainThrown = false;
+      domain.emit(&#x27;error&#x27;, er);
+    } else if (er instanceof Error) {
+      throw er; // Unhandled &#x27;error&#x27; event
+    } else {
+      // At least give some kind of context to the user
+      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      err.context = er;
+      throw err;
+    }
+    return false;
+  }
+
+  handler = events[type];
+
+  if (!handler)
+    return false;
+
+  if (domain &#x26;&#x26; this !== process) {
+    domain.enter();
+    needDomainExit = true;
+  }
+
+  var isFn = typeof handler === &#x27;function&#x27;;
+  len = arguments.length;
+  switch (len) {
+    // fast cases
+    case 1:
+      emitNone(handler, isFn, this);
+      break;
+    case 2:
+      emitOne(handler, isFn, this, arguments[1]);
+      break;
+    case 3:
+      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
+      break;
+    case 4:
+      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
+      break;
+    // slower
+    default:
+      args = new Array(len - 1);
+      for (i = 1; i &#x3c; len; i++)
+        args[i - 1] = arguments[i];
+      emitMany(handler, isFn, this, args);
+  }
+
+  if (needDomainExit)
+    domain.exit();
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (err) {
+      util.warn(err);
+    }
+
+    context.error  = err;
+    context.api    = api;
+    context.parser = parser;
+    context.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;change&#x27;);
+
+    if (_.isFunction(callback)) {
+      callback(err, self, context.api, context.parser);
+    }
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.eventNames" id="apidoc.element.swagger-express-middleware.context.prototype.eventNames">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>eventNames
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function eventNames() {
+  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.getMaxListeners" id="apidoc.element.swagger-express-middleware.context.prototype.getMaxListeners">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>getMaxListeners
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getMaxListeners() {
+  return $getMaxListeners(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.listenerCount" id="apidoc.element.swagger-express-middleware.context.prototype.listenerCount">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>listenerCount
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listenerCount(type) {
+  const events = this._events;
+
+  if (events) {
+    const evlistener = events[type];
+
+    if (typeof evlistener === &#x27;function&#x27;) {
+      return 1;
+    } else if (evlistener) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.listeners" id="apidoc.element.swagger-express-middleware.context.prototype.listeners">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>listeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listeners(type) {
+  var evlistener;
+  var ret;
+  var events = this._events;
+
+  if (!events)
+    ret = [];
+  else {
+    evlistener = events[type];
+    if (!evlistener)
+      ret = [];
+    else if (typeof evlistener === &#x27;function&#x27;)
+      ret = [evlistener];
+    else
+      ret = arrayClone(evlistener, evlistener.length);
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.on" id="apidoc.element.swagger-express-middleware.context.prototype.on">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>on
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+router = util.isExpressRouter(router) ? router : context.router;
+
+if (util.isExpressRouter(router)) {
+  // This is special path-param middleware, which sets `req.params`
+  registerPathParamMiddleware();
+
+  // If the API changes, register any new path-params
+  context.<span class="apidocCodeKeywordSpan">on</span>(&#x27;change&#x27;, registerPathParamMiddleware);
+}
+else {
+  util.debug(
+    &#x27;WARNING! An Express Router/Application was not passed to the requestParser middleware. &#x27; +
+    &#x27;req.params will not be parsed. Use req.pathParams instead.&#x27;
+  );
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.once" id="apidoc.element.swagger-express-middleware.context.prototype.once">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>once
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.prependListener" id="apidoc.element.swagger-express-middleware.context.prototype.prependListener">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>prependListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prependListener(type, listener) {
+  return _addListener(this, type, listener, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.prependOnceListener" id="apidoc.element.swagger-express-middleware.context.prototype.prependOnceListener">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>prependOnceListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  this.prependListener(type, _onceWrap(this, type, listener));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.removeAllListeners" id="apidoc.element.swagger-express-middleware.context.prototype.removeAllListeners">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>removeAllListeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeAllListeners(type) {
+  var listeners, events;
+
+  events = this._events;
+  if (!events)
+    return this;
+
+  // not listening for removeListener, no need to emit
+  if (!events.removeListener) {
+    if (arguments.length === 0) {
+      this._events = new EventHandlers();
+      this._eventsCount = 0;
+    } else if (events[type]) {
+      if (--this._eventsCount === 0)
+        this._events = new EventHandlers();
+      else
+        delete events[type];
+    }
+    return this;
+  }
+
+  // emit removeListener for all listeners on all events
+  if (arguments.length === 0) {
+    var keys = Object.keys(events);
+    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+      key = keys[i];
+      if (key === &#x27;removeListener&#x27;) continue;
+      this.removeAllListeners(key);
+    }
+    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this._events = new EventHandlers();
+    this._eventsCount = 0;
+    return this;
+  }
+
+  listeners = events[type];
+
+  if (typeof listeners === &#x27;function&#x27;) {
+    this.removeListener(type, listeners);
+  } else if (listeners) {
+    // LIFO order
+    do {
+      this.removeListener(type, listeners[listeners.length - 1]);
+    } while (listeners[0]);
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.removeListener" id="apidoc.element.swagger-express-middleware.context.prototype.removeListener">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>removeListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
+  var list, events, position, i, originalListener;
+
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+
+  events = this._events;
+  if (!events)
+    return this;
+
+  list = events[type];
+  if (!list)
+    return this;
+
+  if (list === listener || list.listener === listener) {
+    if (--this._eventsCount === 0)
+      this._events = new EventHandlers();
+    else {
+      delete events[type];
+      if (events.removeListener)
+        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+    }
+  } else if (typeof list !== &#x27;function&#x27;) {
+    position = -1;
+
+    for (i = list.length; i-- &#x3e; 0;) {
+      if (list[i] === listener || list[i].listener === listener) {
+        originalListener = list[i].listener;
+        position = i;
+        break;
+      }
+    }
+
+    if (position &#x3c; 0)
+      return this;
+
+    if (list.length === 1) {
+      list[0] = undefined;
+      if (--this._eventsCount === 0) {
+        this._events = new EventHandlers();
+        return this;
+      } else {
+        delete events[type];
+      }
+    } else {
+      spliceOne(list, position);
+    }
+
+    if (events.removeListener)
+      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.context.prototype.setMaxListeners" id="apidoc.element.swagger-express-middleware.context.prototype.setMaxListeners">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.context.prototype.</span>setMaxListeners
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
+  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
+    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  this._maxListeners = n;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.json_schema" id="apidoc.module.swagger-express-middleware.json_schema">module swagger-express-middleware.json_schema</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.json_schema.json_schema" id="apidoc.element.swagger-express-middleware.json_schema.json_schema">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>json_schema
+        <span class="apidocSignatureSpan">(schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JsonSchema(schema) {
+  if (!schema) {
+    throw ono({status: 500}, &#x27;Missing JSON schema&#x27;);
+  }
+  if (schema.type !== undefined &#x26;&#x26; dataTypes.indexOf(schema.type) === -1) {
+    throw ono({status: 500}, &#x27;Invalid JSON schema type: %s&#x27;, schema.type);
+  }
+
+  this.schema = schema;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.json_schema.prototype" id="apidoc.module.swagger-express-middleware.json_schema.prototype">module swagger-express-middleware.json_schema.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.json_schema.prototype.parse" id="apidoc.element.swagger-express-middleware.json_schema.prototype.parse">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>parse
+        <span class="apidocSignatureSpan">(value, propPath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (value, propPath) {
+  switch (this.schema.type) {
+    case &#x27;number&#x27;:
+      return parseNumber(this.schema, value, propPath);
+    case &#x27;integer&#x27;:
+      return parseInteger(this.schema, value, propPath);
+    case &#x27;boolean&#x27;:
+      return parseBoolean(this.schema, value, propPath);
+    case &#x27;array&#x27;:
+      return parseArray(this.schema, value, propPath);
+    case &#x27;object&#x27;:
+    case undefined:
+      return parseObject(this.schema, value, propPath);
+    case &#x27;file&#x27;:
+      return parseFile(this.schema, value, propPath);
+    case &#x27;string&#x27;:
+      switch (this.schema.format) {
+        case &#x27;byte&#x27;:
+          return parseInteger(this.schema, value, propPath);
+        case &#x27;date&#x27;:
+        case &#x27;date-time&#x27;:
+          return parseDate(this.schema, value, propPath);
+        default:
+          return parseString(this.schema, value, propPath);
+      }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    else if (schema.default === undefined) {
+      // The parameter is optional, and there&#x27;s no default value
+      return undefined;
+    }
+  }
+
+  try {
+    return new JsonSchema(schema).<span class="apidocCodeKeywordSpan">parse</span>(value);
+  }
+  catch (e) {
+    throw ono(e, {status: e.status}, &#x27;The &#x22;%s&#x22; %s parameter is invalid (%j)&#x27;,
+      param.name, param.in, value === undefined ? param.default : value);
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.json_schema.prototype.sample" id="apidoc.element.swagger-express-middleware.json_schema.prototype.sample">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>sample
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sample = function () {
+  switch (this.schema.type) {
+    case &#x27;number&#x27;:
+      return sampleNumber(this.schema);
+    case &#x27;integer&#x27;:
+      return sampleInteger(this.schema);
+    case &#x27;boolean&#x27;:
+      return sampleBoolean(this.schema);
+    case &#x27;array&#x27;:
+      return sampleArray(this.schema);
+    case &#x27;object&#x27;:
+    case undefined:
+      return sampleObject(this.schema);
+    case &#x27;string&#x27;:
+      switch (this.schema.format) {
+        case &#x27;byte&#x27;:
+          return sampleInteger(this.schema);
+        case &#x27;date&#x27;:
+        case &#x27;date-time&#x27;:
+          return sampleDate(this.schema);
+        default:
+          return sampleString(this.schema);
+      }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  maxItems = Math.max(50, minItems);
+}
+
+var array = [];
+var itemSchema = new JsonSchema(schema.items);
+var length = _.random(minItems, maxItems);
+for (var i = 0; i &#x3c; length; i++) {
+  array.push(itemSchema.<span class="apidocCodeKeywordSpan">sample</span>());
+}
+
+return array;
+}
+
+function parseObject(schema, value, propPath) {
+// Handle missing, required, and default
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.json_schema.prototype.serialize" id="apidoc.element.swagger-express-middleware.json_schema.prototype.serialize">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.json_schema.prototype.</span>serialize
+        <span class="apidocSignatureSpan">(value, propPath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serialize = function (value, propPath) {
+  switch (this.schema.type) {
+    case &#x27;number&#x27;:
+      return serializeNumber(this.schema, value, propPath);
+    case &#x27;integer&#x27;:
+      return serializeInteger(this.schema, value, propPath);
+    case &#x27;boolean&#x27;:
+      return serializeBoolean(this.schema, value, propPath);
+    case &#x27;array&#x27;:
+      return serializeArray(this.schema, value, propPath);
+    case &#x27;object&#x27;:
+    case undefined:
+      return serializeObject(this.schema, value, propPath);
+    case &#x27;file&#x27;:
+      return serializeFile(this.schema, value, propPath);
+    case &#x27;string&#x27;:
+      switch (this.schema.format) {
+        case &#x27;byte&#x27;:
+          return serializeInteger(this.schema, value, propPath);
+        case &#x27;date&#x27;:
+        case &#x27;date-time&#x27;:
+          return serializeDate(this.schema, value, propPath);
+        default:
+          return serializeString(this.schema, value, propPath);
+      }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function serializeArray(schema, value, propPath) {
+  value = getValueToValidate(schema, value);
+
+  if (_.isArray(value) &#x26;&#x26; schema.items) {
+    var itemSchema = new JsonSchema(schema.items);
+
+    for (var i = 0; i &#x3c; value.length; i++) {
+      value[i] = itemSchema.<span class="apidocCodeKeywordSpan">serialize</span>(value[i], propPath + &#x27;[&#x27; + i + &#x27;]&#
+x27;);
+    }
+  }
+
+  return value;
+}
+
+function sampleArray(schema) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.param_parser" id="apidoc.module.swagger-express-middleware.param_parser">module swagger-express-middleware.param_parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.param_parser.param_parser" id="apidoc.element.swagger-express-middleware.param_parser.param_parser">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.</span>param_parser
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paramParser() {
+  return [parseSimpleParams, parseFormDataParams, parseBodyParam];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.param_parser.parseParameter" id="apidoc.element.swagger-express-middleware.param_parser.parseParameter">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.param_parser.</span>parseParameter
+        <span class="apidocSignatureSpan">(param, value, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseParameter(param, value, schema) {
+  if (value === undefined) {
+    if (param.required) {
+      // The parameter is required, but was not provided, so throw a 400 error
+      var errCode = 400;
+
+      if (param.in === &#x27;header&#x27; &#x26;&#x26; param.name.toLowerCase() === &#x27;content-length&#x27;) {
+        // Special case for the Content-Length header.  It has it&#x27;s own HTTP error code.
+        errCode = 411; // (Length Required)
+      }
+
+      //noinspection ExceptionCaughtLocallyJS
+      throw ono({status: errCode}, &#x27;Missing required %s parameter &#x22;%s&#x22;&#x27;, param.in, param.name);
+    }
+    else if (schema.default === undefined) {
+      // The parameter is optional, and there&#x27;s no default value
+      return undefined;
+    }
+  }
+
+  try {
+    return new JsonSchema(schema).parse(value);
+  }
+  catch (e) {
+    throw ono(e, {status: e.status}, &#x27;The &#x22;%s&#x22; %s parameter is invalid (%j)&#x27;,
+      param.name, param.in, value === undefined ? param.default : value);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        // Parse each path param
+        for (var i = 1; i &#x3c; values.length; i++) {
+          var paramName = paramNames[i - 1];
+          var paramValue = decodeURIComponent(values[i]);
+          var param = _.find(req.swagger.params, {in: &#x27;path&#x27;, name: paramName});
+
+          util.debug(&#x27;    Parsing the &#x22;%s&#x22; path parameter&#x27;, paramName);
+          req.pathParams[paramName] = paramParser.<span class="apidocCodeKeywordSpan">parseParameter</span>(param, paramValue, param
+);
+        }
+      }
+    }
+
+    next();
+  }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.swagger-express-middleware.util" id="apidoc.module.swagger-express-middleware.util">module swagger-express-middleware.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.debug" id="apidoc.element.swagger-express-middleware.util.debug">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>debug
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function debug() {
+  // disabled?
+  if (!debug.enabled) return;
+
+  var self = debug;
+
+  // set `diff` timestamp
+  var curr = +new Date();
+  var ms = curr - (prevTime || curr);
+  self.diff = ms;
+  self.prev = prevTime;
+  self.curr = curr;
+  prevTime = curr;
+
+  // turn the `arguments` into a proper Array
+  var args = new Array(arguments.length);
+  for (var i = 0; i &#x3c; args.length; i++) {
+    args[i] = arguments[i];
+  }
+
+  args[0] = exports.coerce(args[0]);
+
+  if (&#x27;string&#x27; !== typeof args[0]) {
+    // anything else let&#x27;s inspect with %O
+    args.unshift(&#x27;%O&#x27;);
+  }
+
+  // apply any `formatters` transformations
+  var index = 0;
+  args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+    // if we encounter an escaped % then don&#x27;t increase the array index
+    if (match === &#x27;%%&#x27;) return match;
+    index++;
+    var formatter = exports.formatters[format];
+    if (&#x27;function&#x27; === typeof formatter) {
+      var val = args[index];
+      match = formatter.call(self, val);
+
+      // now we need to remove `args[index]` since it&#x27;s inlined in the `format`
+      args.splice(index, 1);
+      index--;
+    }
+    return match;
+  });
+
+  // apply env-specific formatting (colors, etc.)
+  exports.formatArgs.call(self, args);
+
+  var logFn = debug.log || exports.log || console.log.bind(console);
+  logFn.apply(self, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * Handles CORS preflight requests.
+ */
+function corsPreflight(req, res, next) {
+  if (req.method === &#x27;OPTIONS&#x27;) {
+    util.<span class="apidocCodeKeywordSpan">debug</span>(&#x27;OPTIONS %s is a CORS preflight request. Sending HTTP 200 response
+.&#x27;, req.path);
+    res.send();
+  }
+  else {
+    next();
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.getAllowedMethods" id="apidoc.element.swagger-express-middleware.util.getAllowedMethods">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getAllowedMethods
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAllowedMethods = function (path) {
+  return swaggerMethods
+    .filter(function(method) { return !!path[method]; })
+    .join(&#x27;, &#x27;)
+    .toUpperCase();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // By default, allow the origin host. Fallback to wild-card.
+  res.set(header, req.get(&#x27;Origin&#x27;) || &#x27;*&#x27;);
+  break;
+
+case accessControl.allowMethods:
+  if (req.swagger &#x26;&#x26; req.swagger.path) {
+    // Return the allowed methods for this Swagger path
+    res.set(header, util.<span class="apidocCodeKeywordSpan">getAllowedMethods</span>(req.swagger.path));
+  }
+  else {
+    // By default, allow all of the requested methods. Fallback to ALL methods.
+    res.set(header, req.get(&#x27;Access-Control-Request-Method&#x27;) || swaggerMethods.join(&#x27;, &#x27;).toUpperCase());
+  }
+  break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.getParameters" id="apidoc.element.swagger-express-middleware.util.getParameters">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getParameters
+        <span class="apidocSignatureSpan">(path, operation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getParameters = function (path, operation) {
+  var pathParams = [], operationParams = [];
+
+  // Get the path and operation parameters
+  if (path &#x26;&#x26; path.parameters) {
+    pathParams = path.parameters;
+  }
+  if (operation &#x26;&#x26; operation.parameters) {
+    operationParams = operation.parameters;
+  }
+
+  // Combine the path and operation parameters,
+  // with the operation params taking precedence over the path params
+  return _.unique(operationParams.concat(pathParams), function(param) {
+    return param.name + param.in;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  next();
+}
+
+/**
+ * Sets `req.swagger.params`
+ */
+function swaggerParamsMetadata(req, res, next) {
+  req.swagger.params = util.<span class="apidocCodeKeywordSpan">getParameters</span>(req.swagger.path, req.swagger.operation);
+  next();
+}
+
+/**
+ * Sets `req.swagger.security`
+ */
+function swaggerSecurityMetadata(req, res, next) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.getRequestSchema" id="apidoc.element.swagger-express-middleware.util.getRequestSchema">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getRequestSchema
+        <span class="apidocSignatureSpan">(path, operation)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRequestSchema = function (path, operation) {
+  var params = exports.getParameters(path, operation);
+
+  // If there&#x27;s a &#x22;body&#x22; parameter, then use its schema
+  var bodyParam = _.find(params, {in: &#x27;body&#x27;});
+  if (bodyParam) {
+    if (bodyParam.schema.type === &#x27;array&#x27;) {
+      return bodyParam.schema.items;
+    }
+    else {
+      return bodyParam.schema;
+    }
+  }
+  else {
+    var schema = {type: &#x27;object&#x27;, required: [], properties: {}};
+
+    // If there are &#x22;formData&#x22; parameters, then concatenate them into a single JSON schema
+    _.where(params, {in: &#x27;formData&#x27;}).forEach(function(param) {
+      schema.properties[param.name] = param;
+      if (param.required) {
+        schema.required.push(param.name);
+      }
+    });
+
+    return schema;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.getResponsesBetween" id="apidoc.element.swagger-express-middleware.util.getResponsesBetween">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>getResponsesBetween
+        <span class="apidocSignatureSpan">(operation, min, max)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getResponsesBetween = function (operation, min, max) {
+  return _.map(operation.responses,
+    function(response, responseCode) {
+      return {
+        code: parseInt(responseCode) || responseCode,
+        api: response
+      };
+    })
+    .sort(function(a, b) {
+      // Sort by response code.  &#x22;default&#x22; comes last.
+      a = _.isNumber(a.code) ? a.code : 999;
+      b = _.isNumber(b.code) ? b.code : 999;
+      return a - b;
+    })
+    .filter(function(response) {
+      return (response.code &#x3e;= min &#x26;&#x26; response.code &#x3c;= max) || _.isString(response.code);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.isExpressApp" id="apidoc.element.swagger-express-middleware.util.isExpressApp">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressApp
+        <span class="apidocSignatureSpan">(router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExpressApp = function (router) {
+  return exports.isExpressRouter(router) &#x26;&#x26;
+    _.isFunction(router.get) &#x26;&#x26;
+    _.isFunction(router.set) &#x26;&#x26;
+    _.isFunction(router.enabled) &#x26;&#x26;
+    _.isFunction(router.disabled);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.normalizePath = function(path, router) {
+var caseSensitive, strict;
+
+if (!path) {
+  return &#x27;&#x27;;
+}
+
+if (exports.<span class="apidocCodeKeywordSpan">isExpressApp</span>(router)) {
+  caseSensitive = router.enabled(&#x27;case sensitive routing&#x27;);
+  strict = router.enabled(&#x27;strict routing&#x27;);
+}
+else {
+  // This could be an Express Router, or a POJO
+  caseSensitive = !!router.caseSensitive;
+  strict = !!router.strict;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.isExpressRouter" id="apidoc.element.swagger-express-middleware.util.isExpressRouter">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressRouter
+        <span class="apidocSignatureSpan">(router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExpressRouter = function (router) {
+  return _.isFunction(router) &#x26;&#x26;
+    _.isFunction(router.param);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * - An Express Application or Router. If provided, this will be used to determine routing settings
+ * (case sensitivity, strictness), and to register path-param middleware via {@link Router#param}
+ * (see http://expressjs.com/4x/api.html#router.param).
+ *
+ * @constructor
+ */
+function Middleware(sharedRouter) {
+sharedRouter = util.<span class="apidocCodeKeywordSpan">isExpressRouter</span>(sharedRouter) ? sharedRouter : undefined;
+
+var self    = this;
+var context = new MiddlewareContext(sharedRouter);
+
+/**
+ * Initializes the middleware with the given Swagger API.
+ * This method can be called again to re-initialize with a new or modified API.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.isExpressRoutingOptions" id="apidoc.element.swagger-express-middleware.util.isExpressRoutingOptions">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isExpressRoutingOptions
+        <span class="apidocSignatureSpan">(router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExpressRoutingOptions = function (router) {
+  return _.isObject(router) &#x26;&#x26;
+    (&#x27;caseSensitive&#x27; in router || &#x27;strict&#x27; in router || &#x27;mergeParams&#x27; in router);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param   {fileServer.defaultOptions}  [options]
+ * - Options for how the files are served (see {@link fileServer.defaultOptions})
+ *
+ * @returns {function[]}
+ */
+this.files = function(router, options) {
+  if (arguments.length === 1 &#x26;&#x26; !util.isExpressRouter(router) &#x26;&#x26; !util.<span class="apidocCodeKeywordSpan">isExpressRoutingOptions
+</span>(router)) {
+    // Shift arguments
+    options = router;
+    router  = sharedRouter;
+  }
+
+  return fileServer(context, router, options);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.isSwaggerRequest" id="apidoc.element.swagger-express-middleware.util.isSwaggerRequest">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>isSwaggerRequest
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isSwaggerRequest = function (req) {
+  // If req.swagger.operation is set, then so are req.swagger.api and req.swagger.path
+  return req.swagger &#x26;&#x26; req.swagger.operation;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  /**
+   * Parses all Swagger path parameters and sets `req.pathParams`.
+   * NOTE: This middleware cannot set `req.params`.  That requires special path-param middleware (see above)
+   */
+  function parsePathParams(req, res, next) {
+    if (util.<span class="apidocCodeKeywordSpan">isSwaggerRequest</span>(req)) {
+req.pathParams = {};
+
+if (req.swagger.pathName.indexOf(&#x27;{&#x27;) &#x3e;= 0) {
+  // Convert the Swagger path to a RegExp
+  var paramNames = [];
+  var pathPattern = req.swagger.pathName.replace(util.swaggerParamRegExp, function(match, paramName) {
+    paramNames.push(paramName);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.normalizePath" id="apidoc.element.swagger-express-middleware.util.normalizePath">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>normalizePath
+        <span class="apidocSignatureSpan">(path, router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizePath = function (path, router) {
+  var caseSensitive, strict;
+
+  if (!path) {
+    return &#x27;&#x27;;
+  }
+
+  if (exports.isExpressApp(router)) {
+    caseSensitive = router.enabled(&#x27;case sensitive routing&#x27;);
+    strict = router.enabled(&#x27;strict routing&#x27;);
+  }
+  else {
+    // This could be an Express Router, or a POJO
+    caseSensitive = !!router.caseSensitive;
+    strict = !!router.strict;
+  }
+
+  if (!caseSensitive) {
+    path = path.toLowerCase();
+  }
+
+  if (!strict &#x26;&#x26; _.endsWith(path, &#x27;/&#x27;)) {
+    path = path.substr(0, path.length - 1);
+  }
+
+  return path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  /**
+   * Serves the fully-dereferenced Swagger API in JSON format.
+   */
+  function serveDereferencedSwaggerFile(req, res, next) {
+    if (req.method === &#x27;GET&#x27; || req.method === &#x27;HEAD&#x27;) {
+var configPath = getConfiguredPath(options.apiPath);
+configPath = util.<span class="apidocCodeKeywordSpan">normalizePath</span>(configPath, router);
+var reqPath = util.normalizePath(req.path, router);
+
+if (reqPath === configPath) {
+  if (context.api) {
+    util.debug(&#x27;%s %s =&#x3e; Sending the Swagger API as JSON&#x27;, req.method, req.path);
+    res.json(context.api);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.rfc1123" id="apidoc.element.swagger-express-middleware.util.rfc1123">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>rfc1123
+        <span class="apidocSignatureSpan">(date)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rfc1123 = function (date) {
+  // jscs:disable maximumLineLength
+  var dayName = [&#x27;Sun&#x27;, &#x27;Mon&#x27;, &#x27;Tue&#x27;, &#x27;Wed&#x27;, &#x27;Thu&#x27;, &#x27;Fri&#x27;, &#x27;Sat&#x27;][date.getUTCDay()];
+  var monthName = [&#x27;Jan&#x27;, &#x27;Feb&#x27;, &#x27;Mar&#x27;, &#x27;Apr&#x27;, &#x27;May&#x27;, &#x27;Jun&#x27;, &#x27;Jul&#x27;, &#x27;Aug&#x27;, &#x27;Sep&#x27;, &#x27;Oct&#x27;, &#x27;Nov&#x27;, &#x27;Dec&#x27;][date.getUTCMonth()];
+  return [
+    dayName, &#x27;, &#x27;, _.padLeft(date.getUTCDate(), 2, &#x27;0&#x27;), &#x27; &#x27;, monthName, &#x27; &#x27;, date.getUTCFullYear(), &#x27; &#x27;,
+    _.padLeft(date.getUTCHours(), 2, &#x27;0&#x27;), &#x27;:&#x27;, _.padLeft(date.getUTCMinutes(), 2, &#x27;0&#x27;), &#x27;:&#x27;, _.padLeft(date.getUTCSeconds(), 2, &#x27;
+0&#x27;), &#x27; GMT&#x27;
+  ].join(&#x27;&#x27;);
+  // jscs:enable maximumLineLength
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.swagger-express-middleware.util.warn" id="apidoc.element.swagger-express-middleware.util.warn">
+        function <span class="apidocSignatureSpan">swagger-express-middleware.util.</span>warn
+        <span class="apidocSignatureSpan">(err, message, params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (err, message, params) {
+  if (process.env.WARN !== &#x27;off&#x27;) {
+    if (_.isString(err)) {
+      console.warn(format.apply(null, arguments));
+    }
+    else if (arguments.length &#x3e; 1) {
+      console.warn(format.apply(null, _.drop(arguments, 1)) + &#x27; \n&#x27; + err.stack);
+    }
+    else {
+      console.warn(err.stack);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  if (reqPath === configPath) {
+    if (context.api) {
+      util.debug(&#x27;%s %s =&#x3e; Sending the Swagger API as JSON&#x27;, req.method, req.path);
+      res.json(context.api);
+    }
+    else {
+      util.<span class="apidocCodeKeywordSpan">warn</span>(&#x27;WARNING! The Swagger API is empty. Sending an HTTP 500 response
+ to %s %s&#x27;, req.method, req.path);
+      res.status(500).json({});
+    }
+    return;
+  }
+}
+
+next();
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
